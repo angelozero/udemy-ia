@@ -9,7 +9,7 @@ load_dotenv()
 
 # Configuration constants retrieved from environment
 MODEL_NAME = os.getenv("MODEL_NAME")
-OLLAMA_MODEL_NAME = os.getenv("OLLAMA_MODEL_NAME")
+MODEL_EMBEDDING_NAME = os.getenv("MODEL_EMBEDDING_NAME")
 API_KEY = os.getenv("API_KEY")
 BASE_URL = os.getenv("BASE_URL")
 
@@ -19,20 +19,19 @@ def get_chat_model(model_name=MODEL_NAME):
     Configuração baseada na imagem do VSCode/LiteLLM.
     """
     return init_chat_model(
-        model=model_name,            # "gemini-2.0-flash"
-        model_provider="openai",     # O Proxy do LiteLLM usa o padrão OpenAI
-        api_key=API_KEY,             # Sua chave secreta
-        base_url=BASE_URL,           # A URL do Flow CI&T
+        model=model_name,
+        model_provider="openai",
+        api_key=API_KEY,
+        base_url=BASE_URL,
         temperature=0,
     )
 
 
-def get_embeddings(model_name=OLLAMA_MODEL_NAME):
+def get_embeddings(model_embedding_name=MODEL_EMBEDDING_NAME):
     """
     Initializes and returns the Embeddings instance.
     Configured to handle float encoding format for Ollama compatibility.
     """
     return OllamaEmbeddings(
-        model=model_name,
-        base_url="http://localhost:11434"
+        model=model_embedding_name, base_url="http://localhost:11434"
     )
