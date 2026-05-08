@@ -1,0 +1,35 @@
+Generative AI has captured our imagination in countless ways — not just for chatbots with humanlike responses, but also in the way it can unlock entirely new user experiences. And, unlike traditional AI workloads that require additional specialized skills, these new gen AI workloads are available to a larger segment of the developer community. As application developers dive into building gen AI applications, the key to innovation will not just be in the models themselves, but in how they are used and in the data that grounds them. 
+
+Today, at Google Cloud Next, we announced AlloyDB AI, an integrated set of capabilities built into AlloyDB for PostgreSQL, to help developers build performant and scalable gen AI applications using their operational data. AlloyDB AI helps developers more easily and efficiently combine the power of large language models (LLMs) with their real-time operational data by providing built-in, end-to-end support for vector embeddings. 
+
+AlloyDB AI allows users to easily transform their data into vector embeddings with a simple SQL function for in-database embeddings generation, and runs vector queries up to 10x faster compared to standard PostgreSQL when using the IVFFlat index1. Integrations with the open source AI ecosystem and Google Cloud’s Vertex AI platform provide an end-to-end solution for building gen AI applications.  
+
+AlloyDB AI is now in preview via downloadable AlloyDB Omni and will be launched later this year on the AlloyDB managed service.
+
+Vector embeddings bridge the gap between your data and LLMs
+Enterprise gen AI apps face a variety of challenges that LLMs alone don’t address. These apps need to provide accurate and up-to-date information, offer contextual user experiences and be easy for developers to build and operate. 
+
+Databases with vector support are the bridge between LLMs and enterprise gen AI apps. Why? First, databases have the most-up-to-date data for your users and applications. Bringing that real-time data from your database to the LLM with approaches like Retrieval Augmented Generation (RAG) allows you to ground LLMs, improving accuracy and helping to ensure that responses are informative, relevant, actionable and customized to the user. Second, support for vector embeddings — numeric representations of data used to represent the meaning of the underlying data — allow you to retrieve information based on semantic relevance. RAG workflows often use embeddings as a way of finding, filtering, and representing relevant data to augment LLM prompts. Embeddings can also power experiences like real-time product recommendations, allowing users to query for the items that are most relevant. Finally, operational databases are generally already familiar to, and trusted by, application developers to back their enterprise applications. 
+
+We want to make it easy to build enterprise-ready gen AI apps using the databases you already know and love — especially PostgreSQL, which has emerged as an industry standard for relational databases because of its rich functionality, ecosystem extensions, and thriving community. In July, we launched support for the popular pgvector extension in AlloyDB and Cloud SQL to begin addressing these needs. 
+
+AlloyDB AI builds on that basic vector support available with standard PostgreSQL, streamlining the development experience and improving performance to meet the needs of a wider range of workloads. The result is an end-to-end solution for working with vector embeddings and building gen AI experiences. It allows users to create and query embeddings to find relevant data with just a few lines of SQL — no specialized data stack required, and no moving data around. 
+
+How it works
+AlloyDB AI introduces a few new capabilities into AlloyDB to help developers incorporate their real-time data into gen AI applications. These include: 
+
+Easy embeddings generation whereby AlloyDB AI introduces a simple PostgreSQL function to generate embeddings on your data. With a single line of SQL, you can access Google's embeddings models, including both local models (available in technology preview in AlloyDB Omni) for low-latency, in-database embeddings generation, and richer remote models in Vertex AI. These models can be used to automatically create embeddings via inferencing in generated columns and to generate embeddings on-the-fly in response to user inputs.
+Enhanced vector support with up to 10x faster vector queries than standard PostgreSQL, thanks to tight integrations with the AlloyDB query processing engine. We also introduce quantization techniques based on Google’s ScaNN technology to support four times more vector dimensions and a three-times space reduction when enabled. 
+Integrations with the AI ecosystem, including Vertex AI Extensions (coming later this year) and LangChain. Finally, we continue to offer the ability to call remote models in Vertex AI for low-latency, high-throughput augmented transactions using SQL for use-cases such as fraud detection.
+These capabilities can be added to any AlloyDB deployment by installing the relevant extensions, at no additional charge.
+
+Enabling gen AI apps everywhere with AlloyDB Omni
+
+AlloyDB AI was built with portability and flexibility in mind. Not only is it PostgreSQL-compatible, but with AlloyDB Omni, customers can take advantage of this technology to build enterprise-grade, AI-enabled applications everywhere: on premises, at the edge, across clouds, or even on developer laptops. Today, AlloyDB Omni is moving from technology preview to public preview. 
+
+Customers trust AlloyDB for their enterprise applications
+Customers already trust AlloyDB for their mission critical applications, and can continue to use it as they leverage its AI capabilities. With full PostgreSQL compatibility, 99.99% availability, enterprise features like data protection, disaster recovery, and built-in security, AlloyDB was built to serve top-tier applications. 
+
+"Chicago Mercantile Exchange (CME) Group is looking to AlloyDB for their most demanding enterprise workloads. They are already in the process of migrating several databases from Oracle to AlloyDB."
+
+If you’re making the journey from Oracle to AlloyDB, we’re also announcing Duet AI in Database Migration Service. This capability provides AI-assisted code conversion to automate the conversion of Oracle database code such as stored procedures, functions, triggers, packages and custom PL/SQL code, that could not be converted with traditional translation technologies. Sign up for the preview today.
